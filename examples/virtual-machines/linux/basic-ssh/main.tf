@@ -40,14 +40,14 @@ resource "azurerm_linux_virtual_machine" "main" {
   name                = "${var.prefix}-vm"
   resource_group_name = azurerm_resource_group.main.name
   location            = azurerm_resource_group.main.location
-  size                = "Standard_F2"
-  admin_username      = "adminuser"
+  size                = "Standard_B1s"
+  admin_username      = "azureuser"
   network_interface_ids = [
     azurerm_network_interface.main.id,
   ]
 
   admin_ssh_key {
-    username   = "adminuser"
+    username   = "azureuser"
     public_key = file("~/.ssh/id_rsa.pub")
   }
 
